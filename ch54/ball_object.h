@@ -23,7 +23,7 @@
 class BallObject : public GameObject
 {
 public:
-    // ball state
+    // ball state	
     float   Radius;
     bool    Stuck;
     bool    Sticky, PassThrough;
@@ -33,7 +33,7 @@ public:
     // moves the ball, keeping it constrained within the window bounds (except bottom edge); returns new position
     glm::vec2 Move(float dt, unsigned int window_width);
     // resets the ball to original state with given position and velocity
-    void      Reset(glm::vec2 vec2 position, glm::vec2 velocity);
+    void      Reset(glm::vec2 position, glm::vec2 velocity);
 };
 
 #endif
