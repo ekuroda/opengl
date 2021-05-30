@@ -60,6 +60,8 @@
 		  "${workspaceFolder}/lib/libassimpd.3.1.1.dylib",
 		  "-lm",
 		  "${workspaceFolder}/lib/libfreetype.6.dylib",
+		  "-lm",
+		  "${workspaceFolder}/lib/libirrklang.dylib",
 		  "-D",
 		  "__APPLE__",
 		],
@@ -70,6 +72,23 @@
 		"group": {
 		  "kind": "build",
 		  "isDefault": true
+		}
+	  },
+
+	  {
+		// https://www.ambiera.com/forum.php?t=1566
+		"type": "shell",
+		"label": "apply install_name_tool -change to libirrklang of program",
+		"command": "install_name_tool",
+		"args": [
+		  "-change",
+		  "/usr/local/lib/libirrklang.dylib",
+		  "${workspaceFolder}/lib/libirrklang.dylib",
+		  "${fileDirname}/program",
+		],
+		"group": {
+			"kind": "build",
+			"isDefault": true
 		}
 	  }
 	]
