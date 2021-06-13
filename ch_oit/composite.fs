@@ -34,6 +34,7 @@ void main()
 	
 	// fragment revealage
 	float revealage = texelFetch(reveal, coords, 0).r;
+    //float revealage = texture(reveal, gl_FragCoord.xy).r;
 	
 	// save the blending and color texture fetch cost if there is not a transparent fragment
 	if (isApproximatelyEqual(revealage, 1.0f)) 
@@ -49,6 +50,8 @@ void main()
 	// prevent floating point precision bug
 	vec3 average_color = accumulation.rgb / max(accumulation.a, EPSILON);
 
+	// TODO: 赤の矩形が表示されない
 	// blend pixels
 	frag = vec4(average_color, 1.0f - revealage);
+	//frag = vec4(revealage, revealage, revealage, 0.5);
 }
